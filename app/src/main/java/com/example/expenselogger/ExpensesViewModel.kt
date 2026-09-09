@@ -16,9 +16,9 @@ class ExpensesViewModel(val repository: ExpensesRepository): ViewModel() {
     fun addExpense(title: String, amount: Double, date: String, detail: String = ""): Pair<Boolean, String> {
         if(title.isEmpty()) {
             return Pair(false, "Title field is Empty!")
-        } else if(amount == 0.0) {
+        } else if(amount <= 0.0) {
             return Pair(false, "Please enter the amount of the Expense")
-        } else if(date.isEmpty()) {
+        } else if(date.isEmpty() || date == "DD/MM/YYYY") {
             return Pair(false, "Please select the date!")
         }
 
@@ -50,9 +50,9 @@ class ExpensesViewModel(val repository: ExpensesRepository): ViewModel() {
 
         if(title.isEmpty()) {
             return Pair(false, "Title field is Empty!")
-        } else if(amount == 0.0) {
+        } else if(amount <= 0.0) {
             return Pair(false, "Please enter the amount of the Expense")
-        } else if(date.isEmpty()) {
+        } else if(date.isEmpty() || date == "DD/MM/YYYY") {
             return Pair(false, "Please select the date!")
         }
 

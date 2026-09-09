@@ -1,6 +1,5 @@
 package com.example.expenselogger
 
-import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -29,7 +28,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.SwipeToDismissBox
 import androidx.compose.material3.SwipeToDismissBoxValue
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
@@ -53,10 +51,7 @@ import com.example.expenselogger.repository.ExpensesRepository
 import kotlinx.coroutines.flow.Flow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
@@ -65,10 +60,8 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.rememberDatePickerState
-import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -191,7 +184,7 @@ fun EditingScreen(
 
     var isEditing by rememberSaveable { mutableStateOf(false) }
 
-    LaunchedEffect(expense!!) {
+    LaunchedEffect(expense) {
         if (!addScreen && expense != null) {
             title = expense.title
             amount = expense.amount.toString()
@@ -514,13 +507,6 @@ fun HomeScreen(
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.align(Alignment.Center)
-                )
-                Switch(
-                    modifier = Modifier.align(Alignment.CenterEnd),
-                    checked = true,
-                    onCheckedChange = {
-//                        TODO("Theme Change")
-                    }
                 )
 
             }
