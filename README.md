@@ -65,4 +65,39 @@ This Expense Logger Android Application of mine focuses on storing the regular n
 
 ## Setup instructions
 
-You can install the lates APK directly on an Android device without opening Android 
+You can install the lates APK directly on an Android device without opening Android Studio.
+
+**[Download Expense Logger APK](./Expense Logger.apk)**
+
+### Installation
+
+1. Download the APK file on your Android device.
+2. Open the downloaded `.apk` file.
+3. If prompted, allow installation from unknown sources for your browser/file manager.
+4. Tap **Install**.
+5. Open the app after installation.
+
+> **Note:** The app requires Android 7.0 (API 24) or higher.
+
+## Setup for Development
+
+### prerequisites
+
+- Android Studio
+- JDK 17+
+- Android SDK
+- Android device or emulator with API 24+
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/KrishnaChaitanyaVodnala/Expense-Logger.git
+```
+
+2. Open the project in Android Studio.
+3. Allow Gradle to sync and download the required dependencies.
+3. Connect an Android device or start an emulator.
+4. Select the app configuration.
+5. Click Run to build and launch the application.
