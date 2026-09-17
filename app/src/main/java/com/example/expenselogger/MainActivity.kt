@@ -651,7 +651,7 @@ fun HomeScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun ExpenseLoggerPreview() {
     ExpenseLoggerTheme {
         val repository = object: ExpensesRepository {
 

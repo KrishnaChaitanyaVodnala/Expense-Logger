@@ -7,19 +7,19 @@ This Expense Logger Android Application of mine focuses on storing the regular n
 <table>
     <tr>
         <td align = "center">
-            <b>Home Screen<b><br>
+            <b>Home Screen</b><br>
             <img src = "Expense Logger (Home Screen).jpg" alt = "Home Screen" width="150">
         </td>
         <td>
-            <b>Add Expense Screen<b><br>
+            <b>Add Expense Screen</b><br>
             <img src = "Expense Logger (Add Screen).jpg" alt = "Home Screen" width="150">
         </td>
         <td>
-            <b>View Expense Screen<b><br>
+            <b>View Expense Screen</b><br>
             <img src = "Expense Logger (View Expense).jpg" alt = "Home Screen" width="150">
         </td>
         <td>
-            <b>Screen in Dark Mode<b><br>
+            <b>Screen in Dark Mode</b><br>
             <img src = "Expense Logger (Dark Mode).jpg" alt = "Home Screen" width="150">
         </td>
     </tr>
@@ -40,9 +40,9 @@ This Expense Logger Android Application of mine focuses on storing the regular n
 
 **UI → ViewModel → Repository → Room**
 
-- **UI(MainActivity.kt)** Contains all the UI components used to display the information and take the information from the User.
+- **UI (MainActivity.kt):** Contains all composables — AppNavHost (navigation graph), HomeScreen, EditingScreen, DatePickerModal. (Currently in a single file — planned refactor to split by screen.)
 
-- **ViewModel(ExpensesViewModel.kt)**
+- **ViewModel(ExpensesViewModel.kt):**
     - Manages UI state using `StateFlow`
     - Calls the appropriate Repository functions
     - Validates user input before saving an expense, like
@@ -50,12 +50,12 @@ This Expense Logger Android Application of mine focuses on storing the regular n
         - Negative amounts
         - unselected dates
 
-- **Repository(ExpenseRepository.kt & ExpensesRepositoryImpl.kt)** 
+- **Repository(ExpenseRepository.kt & ExpensesRepositoryImpl.kt):** 
     - **Repository Interface:** Defines the contract for data operations between the Application and data layer.
     - **Repository Impl:** Implements the interface and contains the actual logic for performing those data operations.
 
 
-- **Room(Expense.kt & ExpensesDao.kt)** Defines the CRUD operation in the Room DB that are to be used in the Application
+- **Room(Expense.kt & ExpensesDao.kt):** Defines the CRUD operation in the Room DB that are to be used in the Application
 
 ## Features
 - Add daily expenses
@@ -65,11 +65,11 @@ This Expense Logger Android Application of mine focuses on storing the regular n
 
 ## Setup instructions
 
-You can install the lates APK directly on an Android device without opening Android Studio.
+You can install the latest APK directly on an Android device without opening Android Studio.
 
-**[Download Expense Logger APK](./Expense Logger.apk)**
+**[Download Expense Logger APK](./Expense%20Logger.apk)**
 
-### Installation
+### Installation via APK
 
 1. Download the APK file on your Android device.
 2. Open the downloaded `.apk` file.
@@ -81,14 +81,14 @@ You can install the lates APK directly on an Android device without opening Andr
 
 ## Setup for Development
 
-### prerequisites
+### Prerequisites
 
 - Android Studio
 - JDK 17+
 - Android SDK
 - Android device or emulator with API 24+
 
-### Installation
+### Clone & Run
 
 1. Clone the repository
 
@@ -98,6 +98,6 @@ git clone https://github.com/KrishnaChaitanyaVodnala/Expense-Logger.git
 
 2. Open the project in Android Studio.
 3. Allow Gradle to sync and download the required dependencies.
-3. Connect an Android device or start an emulator.
-4. Select the app configuration.
-5. Click Run to build and launch the application.
+4. Connect an Android device or start an emulator.
+5. Select the app configuration.
+6. Click Run to build and launch the application.
