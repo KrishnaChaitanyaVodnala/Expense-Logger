@@ -6,12 +6,24 @@ import com.example.expenselogger.data.Expense
 import com.example.expenselogger.repository.ExpensesRepository
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class ExpensesViewModel(val repository: ExpensesRepository): ViewModel() {
     val expenses: StateFlow<List<Expense>> = repository.expenses
+        .map { list -> list.sortedByDescending { parseDateToMillis(it.date) } }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), emptyList())
+
+    private fun parseDateToMillis(dateStr: String): Long {
+        return try {
+            SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse(dateStr)?.time ?: 0L
+        } catch (e: Exception) {
+            return 0L
+        }
+    }
 
     fun addExpense(title: String, amount: Double, date: String, detail: String = ""): Pair<Boolean, String> {
         if(title.isEmpty()) {

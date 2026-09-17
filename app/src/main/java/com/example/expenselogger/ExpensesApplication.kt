@@ -9,5 +9,6 @@ import kotlin.getValue
 class ExpensesApplication: Application() {
     val repository: ExpensesRepository by lazy {
         ExpensesRepositoryImpl(ExpensesDatabase.getDatabase(this).expensesDao())
+//        Taking Dao object from the Database object
     }
 }

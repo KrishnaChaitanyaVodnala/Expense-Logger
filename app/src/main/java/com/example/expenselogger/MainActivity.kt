@@ -75,6 +75,8 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material3.SelectableDates
+import java.util.Calendar
 
 
 class MainActivity : ComponentActivity() {
@@ -180,7 +182,19 @@ fun EditingScreen(
 
     var showDatePicker by rememberSaveable { mutableStateOf(false) }
 
-    val datePickerState = rememberDatePickerState()
+    val datePickerState = rememberDatePickerState(
+        selectableDates = object : SelectableDates {
+            override fun isSelectableDate(utcTimeMillis: Long): Boolean {
+                val endOfToday = Calendar.getInstance().apply {
+                    set(Calendar.HOUR_OF_DAY, 23)
+                    set(Calendar.MINUTE, 59)
+                    set(Calendar.SECOND, 59)
+                    set(Calendar.MILLISECOND, 999)
+                }.timeInMillis
+                return utcTimeMillis <= endOfToday
+            }
+        }
+    )
 
     var isEditing by rememberSaveable { mutableStateOf(false) }
 
@@ -589,7 +603,7 @@ fun HomeScreen(
                                 )
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Text(
-                                    text = "← Swipe to Delete",
+                                    text = expense.date,
                                     fontWeight = FontWeight.Light,
                                     color = MaterialTheme.colorScheme.tertiary,
                                     modifier = Modifier
@@ -605,7 +619,7 @@ fun HomeScreen(
             }
 
             Text(
-                text = "← Swipe to Delete",
+                text = "← Swipe Left to Delete",
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
