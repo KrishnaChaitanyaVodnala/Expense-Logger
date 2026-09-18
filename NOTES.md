@@ -9,5 +9,5 @@
 - Room Database abstract class declaration
 - Application for getting database, DAO object, and repository object
 - ViewModel Factory for getting ViewModel object
-- researched how to split screens into separate files — not yet applied, planned for next session.
+- researched how to split screens into separate files — Applied.
 - Importing list as StateFlow<List<Entity>> in ViewModel. 

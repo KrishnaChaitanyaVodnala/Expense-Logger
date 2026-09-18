@@ -40,7 +40,7 @@ This Expense Logger Android Application of mine focuses on storing the regular n
 
 **UI → ViewModel → Repository → Room**
 
-- **UI (MainActivity.kt):** Contains all composables — AppNavHost (navigation graph), HomeScreen, EditingScreen, DatePickerModal. (Currently in a single file — planned refactor to split by screen.)
+- **UI (MainActivity.kt):** Contains only AppNavHost (navigation graph). Each of the HomeScreen, EditingScreen, and DatePickerModal are configured as seperate files connected through the AppNavHost.
 
 - **ViewModel(ExpensesViewModel.kt):**
     - Manages UI state using `StateFlow`
